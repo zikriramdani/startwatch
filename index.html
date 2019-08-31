@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>StartWatch</title>
+
+	<!-- CSS -->
+	<!-- <link href="assets/css/custom-startwatch.css" rel="stylesheet" type="text/css"> -->
+
+	<style type="text/css">
+		.d-startwatch {
+			position: relative;
+			width:100%;
+			height: 100%;
+			background-position: center;
+		    background-size: contain;
+		    background-repeat: no-repeat;
+		}
+		.d-startwatch__timer {
+			position: absolute;
+		    top: 35.7%; /*13%;*/
+    		/*left: 17.2%;*/
+    		text-align: center;
+    		width: 100%;
+		}	
+		.d-startwatch__timer p {
+			font-size: 2rem; /*5rem;*/
+			color: #eaa500;
+		}
+	</style>
+</head>
+<body>
+	<div style="width: 20%;margin: 0 auto;">
+		<div class="d-startwatch" style="background-image: url('assets/images/background-jackpot.png');height: 300px;">
+			<div class="d-startwatch__timer">
+				<p>
+					<b class="timer" data-from="0" data-speed="10000" data-to="864576380" id="earth"></b>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- JS -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript">
+	</script> 
+	<script src="assets/js/custom-startwatch.js"></script> 
+
+	<script type="text/javascript">
+	   jQuery(function ($) {
+	     // custom formatting example
+	     $('#earth').data('countToOptions', {
+	       formatter: function (value, options) {
+	         return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+	       }
+	     });
+	     // start all the timers
+	     $('.timer').each(count);
+	     function count(options) {
+	       var $this = $(this);
+	       options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+	       $this.countTo(options);
+	     }
+	   });
+	</script>
+</body>
+</html>
