@@ -49,7 +49,7 @@
 	     // custom formatting example
 	     $('#earth').data('countToOptions', {
 	       formatter: function (value, options) {
-	         return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+	         return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, '.');
 	       }
 	     });
 	     // start all the timers
